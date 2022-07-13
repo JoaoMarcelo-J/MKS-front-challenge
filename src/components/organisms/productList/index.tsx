@@ -1,9 +1,9 @@
 //components
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import api from "../../../services/api";
 import { IProduct } from "../../../store/modules/cart/types";
 import { ProductCard } from "../../molecules/productCard";
-import { Skelleton } from "../../molecules/skeleton";
+import { SkelletonEffect } from "../../molecules/skeletonEffect";
 
 //styles
 import * as S from "./styles";
@@ -25,7 +25,7 @@ export const ProductList: React.FC = () => {
     return (
       <S.ProductListContainer>
         {[0, 1, 2, 3, 4, 5, 6, 7].map((product) => (
-          <Skelleton
+          <SkelletonEffect
             key={product}
             height="330px"
             width="218px"

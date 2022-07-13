@@ -1,12 +1,16 @@
 import { SkeletonContainer } from "./styles";
 
-interface SkelletonProps {
+interface SkelletonEffectProps {
   width: number | string;
   height: number | string;
   borderRadius?: number | string;
 }
 
-export const Skelleton = ({ width, height, borderRadius }: SkelletonProps) => {
+export const SkelletonEffect = ({
+  width,
+  height,
+  borderRadius,
+}: SkelletonEffectProps) => {
   return (
     <SkeletonContainer
       width={width}
