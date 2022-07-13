@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { IState } from "../../../store";
 import { ICartItem } from "../../../store/modules/cart/types";
 import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
+import { useCallback } from "react";
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -20,6 +21,14 @@ export const CartDrawer = ({ isOpen, closeModal }: CartDrawerProps) => {
   const cart = useSelector<IState, ICartItem[]>((state) => state.cart.items);
   const { width } = useWindowDimensions();
   const isMobile = width > 1024 ? false : true;
+
+  const sumTotalInCart = useCallback(
+    () =>
+      cart.reduce((acc, cur) => {
+        return acc + cur.product.price * cur.quantity;
+      }, 0),
+    [cart]
+  );
 
   return (
     <Drawer
@@ -42,6 +51,7 @@ export const CartDrawer = ({ isOpen, closeModal }: CartDrawerProps) => {
         {cart.map((item) => (
           <CartItem
             key={item.product.id}
+            product={item.product}
             photo={item.product.photo}
             name={item.product.name}
             price={item.product.price}
@@ -52,7 +62,7 @@ export const CartDrawer = ({ isOpen, closeModal }: CartDrawerProps) => {
       <S.DrawerFooter>
         <div>
           <h4>Total:</h4>
-          <strong>R$399</strong>
+          <strong>{`R$ ${sumTotalInCart()}`}</strong>
         </div>
 
         <button onClick={closeModal}>Finalizar Compra</button>

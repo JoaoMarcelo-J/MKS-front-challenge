@@ -1,28 +1,39 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  addProductToCart,
+  decrementProductToCart,
+} from "../../../store/modules/cart/actions";
+import { IProduct } from "../../../store/modules/cart/types";
 import * as S from "./styles";
 
 interface IncrementInputProps {
   quantity: number;
+  product: IProduct;
 }
 
-export const IncrementInput = ({ quantity }: IncrementInputProps) => {
-  const [count, setCount] = useState(quantity);
+export const IncrementInput = ({ quantity, product }: IncrementInputProps) => {
+  const dispatch = useDispatch();
 
-  const handleIncrement = () => {
-    setCount((count) => count + 1);
-  };
+  const handleAddProductToCart = React.useCallback(
+    (product: IProduct) => {
+      dispatch(addProductToCart(product));
+    },
+    [dispatch]
+  );
 
-  const handleDecrement = () => {
-    if (count > 0) {
-      setCount((count) => count - 1);
-    }
-  };
+  const handleDecrementProductToCart = React.useCallback(
+    (product: IProduct) => {
+      dispatch(decrementProductToCart(product));
+    },
+    [dispatch]
+  );
 
   return (
     <S.IncrementeInputContainer>
-      <button onClick={handleDecrement}>-</button>
-      <span>{count}</span>
-      <button onClick={handleIncrement}>+</button>
+      <button onClick={() => handleDecrementProductToCart(product)}>-</button>
+      <span>{quantity}</span>
+      <button onClick={() => handleAddProductToCart(product)}>+</button>
     </S.IncrementeInputContainer>
   );
 };
