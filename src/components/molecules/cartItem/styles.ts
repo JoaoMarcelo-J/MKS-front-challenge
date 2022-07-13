@@ -24,12 +24,6 @@ export const CartItemContainer = styled.div`
   }
 `;
 
-export const PriceContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-`;
-
 export const MobileCartItemContainer = styled.div`
   display: flex;
   border-radius: 8px;
