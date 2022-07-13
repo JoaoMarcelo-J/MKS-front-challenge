@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 
 //styles
 import * as S from "./styles";
-import { Skelleton } from "../../molecules/Skeleton";
+import { Skelleton } from "../../molecules/skeleton";
 
 export const ProductList: React.FC = () => {
   const [catalog, setCatalog] = useState<IProduct[]>([]);
