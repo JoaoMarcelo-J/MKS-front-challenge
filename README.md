@@ -1,4 +1,4 @@
-<img src='./src/assets/screen.svg'>
+<img src='./src/assets/screen.png'>
 
 <br>
 
@@ -10,7 +10,7 @@
 
 <div class='techs'>
 <ul>
-    <li><a href='https://pt-br.reactjs.org/'>React</a></li>
+    <li><a href='https://pt-br.reactjs.org/'>React / Vite</a></li>
     <li><a href='https://www.typescriptlang.org/'>Typescript</a></li>
     <li><a href='https://redux.js.org/'>Redux</a></li>
 </ul>
