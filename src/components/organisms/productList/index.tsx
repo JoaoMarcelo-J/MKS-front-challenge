@@ -3,11 +3,10 @@ import { useCallback, useEffect, useState } from "react";
 import api from "../../../services/api";
 import { IProduct } from "../../../store/modules/cart/types";
 import { ProductCard } from "../../molecules/productCard";
-import { useDispatch } from "react-redux";
+import { Skelleton } from "../../molecules/skeleton";
 
 //styles
 import * as S from "./styles";
-import { Skelleton } from "../../molecules/skeleton";
 
 export const ProductList: React.FC = () => {
   const [catalog, setCatalog] = useState<IProduct[]>([]);
