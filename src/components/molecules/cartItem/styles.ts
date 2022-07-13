@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const CartItemContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   gap: 20px;
@@ -11,16 +12,22 @@ export const CartItemContainer = styled.div`
   box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
 
+  & > img {
+    width: 46px;
+    height: 58px;
+  }
+
   h3 {
     font-size: 0.8rem;
     font-weight: 400;
     max-width: 100px;
   }
+`;
 
-  & > img {
-    width: 46px;
-    height: 58px;
-  }
+export const PriceContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
 `;
 
 export const MobileCartItemContainer = styled.div`

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProductCardContainer = styled.div`
   position: relative;
-  height: 285px;
+  height: 330px;
   width: 218px;
   background-color: var(--white);
   border-radius: 8px;
@@ -25,7 +25,7 @@ export const ProductCardContent = styled.div`
 
   & > div {
     display: flex;
-    gap: 1rem;
+    justify-content: space-between;
   }
 
   h3 {
@@ -42,11 +42,12 @@ export const ProductCardContent = styled.div`
     border-radius: 5px;
     height: fit-content;
     font-size: 1rem;
+    margin-bottom: 20px;
   }
 
   p {
     font-size: 0.625rem;
     color: var(--text-color);
-    margin: 10px 0;
+    margin-top: 8px;
   }
 `;

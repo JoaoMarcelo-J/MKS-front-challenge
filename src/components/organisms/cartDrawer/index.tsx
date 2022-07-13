@@ -6,6 +6,9 @@ import Drawer from "react-modern-drawer";
 //styles
 import "react-modern-drawer/dist/index.css";
 import * as S from "./styles";
+import { useSelector } from "react-redux";
+import { IState } from "../../../store";
+import { ICartItem } from "../../../store/modules/cart/types";
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -13,6 +16,8 @@ interface CartDrawerProps {
 }
 
 export const CartDrawer = ({ isOpen, closeModal }: CartDrawerProps) => {
+  const cart = useSelector<IState, ICartItem[]>((state) => state.cart.items);
+
   return (
     <Drawer
       open={isOpen}
@@ -31,9 +36,15 @@ export const CartDrawer = ({ isOpen, closeModal }: CartDrawerProps) => {
         <CloseButton method={closeModal} padding="10px" />
       </S.DrawerHeader>
       <S.DrawerBody>
-        <CartItem />
-        <CartItem />
-        <CartItem />
+        {cart.map((item) => (
+          <CartItem
+            key={item.product.id}
+            photo={item.product.photo}
+            name={item.product.name}
+            price={item.product.price}
+            quantity={item.quantity}
+          />
+        ))}
       </S.DrawerBody>
       <S.DrawerFooter>
         <div>

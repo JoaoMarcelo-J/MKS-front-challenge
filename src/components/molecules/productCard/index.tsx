@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useDispatch } from "react-redux";
+import { addProductToCart } from "../../../store/modules/cart/actions";
+import { IProduct } from "../../../store/modules/cart/types";
 
 //components
 import { CardButton } from "../../atoms/cardButton";
@@ -6,24 +9,35 @@ import { CardButton } from "../../atoms/cardButton";
 //styles
 import * as S from "./styles";
 
-//images
-import ProductImage from "../../../assets/apple-watch.png";
+interface ProductCardProps {
+  name: string;
+  description: string;
+  price: number;
+  photo: string;
+  product: IProduct;
+}
 
-export const ProductCard: React.FC = () => {
+export const ProductCard = ({
+  name,
+  description,
+  price,
+  photo,
+  product,
+}: ProductCardProps) => {
   return (
     <S.ProductCardContainer>
       <S.ImageWrapper>
-        <img src={ProductImage} alt="Product Image" />
+        <img src={photo} alt="Product Image" />
       </S.ImageWrapper>
 
       <S.ProductCardContent>
         <div>
-          <h3>Apple Watch Series 4 GPS</h3>
-          <span>R$399</span>
+          <h3>{name}</h3>
+          <span>R${price}</span>
         </div>
-        <p>Redesigned from scratch and completely revised.</p>
+        <p>{description}</p>
       </S.ProductCardContent>
-      <CardButton />
+      <CardButton product={product} />
     </S.ProductCardContainer>
   );
 };

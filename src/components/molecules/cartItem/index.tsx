@@ -6,7 +6,14 @@ import { CloseButton } from "../../atoms/closeButton";
 import { IncrementInput } from "../../atoms/incrementeInput";
 import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
 
-export const CartItem: React.FC = () => {
+interface CartItemProps {
+  photo: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+export const CartItem = ({ photo, name, price, quantity }: CartItemProps) => {
   const { width } = useWindowDimensions();
   const isMobile = width > 1024 ? false : true;
 
@@ -14,10 +21,10 @@ export const CartItem: React.FC = () => {
     <>
       {!isMobile ? (
         <S.CartItemContainer>
-          <img src={appleWatch} alt="product icon" />
-          <h3>Apple Watch Series 4 GPS</h3>
-          <IncrementInput />
-          <strong>R$399</strong>
+          <img src={photo} alt="product icon" />
+          <h3>{name}</h3>
+          <IncrementInput quantity={quantity} />
+          <strong>{price}</strong>
 
           <S.CloseButtonWrapper>
             <CloseButton method={() => {}} padding="6px" />
@@ -25,11 +32,11 @@ export const CartItem: React.FC = () => {
         </S.CartItemContainer>
       ) : (
         <S.MobileCartItemContainer>
-          <img src={appleWatch} alt="product icon" />
-          <h3>Apple Watch Series 4 GPS</h3>
+          <img src={photo} alt="product icon" />
+          <h3>{name}</h3>
           <S.CartItemsPriceContainer>
-            <IncrementInput />
-            <strong>R$399</strong>
+            <IncrementInput quantity={quantity} />
+            <strong>{price}</strong>
           </S.CartItemsPriceContainer>
 
           <S.CloseButtonWrapper>

@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 
-export const IncrementInput: React.FC = () => {
-  const [count, setCount] = useState(0);
+interface IncrementInputProps {
+  quantity: number;
+}
+
+export const IncrementInput = ({ quantity }: IncrementInputProps) => {
+  const [count, setCount] = useState(quantity);
 
   const handleIncrement = () => {
     setCount((count) => count + 1);
