@@ -9,6 +9,7 @@ import * as S from "./styles";
 import { useSelector } from "react-redux";
 import { IState } from "../../../store";
 import { ICartItem } from "../../../store/modules/cart/types";
+import { useWindowDimensions } from "../../../hooks/useWindowDimensions";
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -17,13 +18,15 @@ interface CartDrawerProps {
 
 export const CartDrawer = ({ isOpen, closeModal }: CartDrawerProps) => {
   const cart = useSelector<IState, ICartItem[]>((state) => state.cart.items);
+  const { width } = useWindowDimensions();
+  const isMobile = width > 1024 ? false : true;
 
   return (
     <Drawer
       open={isOpen}
       onClose={closeModal}
       direction="right"
-      size="400px"
+      size={!isMobile ? "460px" : "300px"}
       style={{
         backgroundColor: "var(--brand-color)",
         cursor: "default",

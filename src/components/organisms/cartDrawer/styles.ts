@@ -30,6 +30,14 @@ export const DrawerBody = styled.div`
     padding: 20px;
     max-height: 640px;
   }
+
+  @media (max-height: 740px) {
+    max-height: 410px;
+  }
+
+  @media (min-height: 1100px) {
+    max-height: 900px;
+  }
 `;
 
 export const DrawerFooter = styled.footer`
