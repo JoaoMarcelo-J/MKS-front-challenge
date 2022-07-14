@@ -21,7 +21,7 @@
 > <h2> Projeto ✨</h2>
 
 <div class='info-project'>
-O objetivo principal desse teste é avaliar sua capacidade de escrever código limpo, bem testado e reutilizável. Ao terminar, faça o deploy da aplicação e mande-nos o link.
+O objetivo principal desse teste é avaliar sua capacidade de escrever código limpo, bem testado e reutilizável.
 </div>
 
 <br>
