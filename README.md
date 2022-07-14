@@ -43,5 +43,5 @@ O objetivo principal desse teste é avaliar sua capacidade de escrever código l
 
 <div>
     <p>Feito com muita dedição para testar minhas habilidades e passar no teste.</p>
-    <p>Por fim caso queira testar antes de instalar em sua máquina o projeto está hospedado em <a href='https://mks-front-challenge-4mnsqqm04-joaomarcelo-j.vercel.app/'>https://mks-front-challenge-4mnsqqm04-joaomarcelo-j.vercel.app/ </a>
+    <p>Por fim caso queira testar antes de instalar em sua máquina o projeto está hospedado em <a href='https://mks-front-challenge.vercel.app/'>https://mks-front-challenge.vercel.app/ </a>
 </div>
